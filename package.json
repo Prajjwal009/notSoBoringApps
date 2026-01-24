@@ -1,0 +1,28 @@
+{
+  "name": "notsoboringmenuapps",
+  "version": "1.0.0",
+  "description": "A simple website for hosting macOS menu bar apps",
+  "main": "server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "vite",
+    "dev:backend": "node server.js",
+    "build": "vite build",
+    "start": "npm run build && node server.js",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.2",
+    "concurrently": "^9.2.1",
+    "vite": "^7.3.1"
+  }
+}

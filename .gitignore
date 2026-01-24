@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Backup
+public-old/
+
+# macOS
+.DS_Store
+
+# Environment variables
+.env
+
+# DMG files (optional - uncomment if you don't want to commit DMG files)
+# dmgs/*.dmg

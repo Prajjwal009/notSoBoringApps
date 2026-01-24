@@ -1,0 +1,28 @@
+{
+  "apps": [
+    {
+      "name": "MenuClock",
+      "description": "A beautiful clock right in your menu bar with customizable formats and timezones.",
+      "icon": "https://via.placeholder.com/80/667eea/ffffff?text=MC",
+      "version": "1.2.0",
+      "dmgFile": "menuclock-1.2.0.dmg",
+      "category": "Productivity"
+    },
+    {
+      "name": "SystemStats",
+      "description": "Monitor your Mac's CPU, memory, and network usage with real-time graphs.",
+      "icon": "https://via.placeholder.com/80/764ba2/ffffff?text=SS",
+      "version": "2.0.1",
+      "dmgFile": "systemstats-2.0.1.dmg",
+      "category": "Utilities"
+    },
+    {
+      "name": "QuickNotes",
+      "description": "Instant access to your notes. Jot down ideas quickly without opening a full app.",
+      "icon": "https://via.placeholder.com/80/f093fb/ffffff?text=QN",
+      "version": "1.5.3",
+      "dmgFile": "quicknotes-1.5.3.dmg",
+      "category": "Productivity"
+    }
+  ]
+}
