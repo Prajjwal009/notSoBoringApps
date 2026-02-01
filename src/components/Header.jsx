@@ -2,8 +2,8 @@ function Header() {
   return (
     <header>
       <div className="container">
-        <h1>🎯 notSoBoringApps</h1>
-        <p className="tagline">Discover awesome macOS applications</p>
+        <h1>notSoBoringApps</h1>
+        <p className="tagline">Playful utilities for your Mac's menu bar. Stop optimizing. Start living.</p>
       </div>
     </header>
   );

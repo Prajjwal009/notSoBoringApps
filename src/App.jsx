@@ -10,8 +10,8 @@ function App() {
       <Header />
       <main className="container">
         <section id="apps-section">
-          <h2>Available Apps</h2>
-          <p className="section-subtitle">Handpicked utilities to supercharge your Mac experience</p>
+          <h2>Apps</h2>
+          <p className="section-subtitle">Delightful utilities that make your Mac a little less boring</p>
           <AppGrid />
         </section>
       </main>
