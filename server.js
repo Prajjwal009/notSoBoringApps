@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 const BUTTONDOWN_API_KEY = process.env.BUTTONDOWN_API_KEY || '25675129-6404-43ee-8895-08f382307147';
 
 // Middleware
+app.set('trust proxy', true);
 app.use(express.json());
 app.use(express.static('dist'));
 
@@ -31,6 +32,9 @@ app.post('/api/subscribe', async (req, res) => {
     return res.status(400).json({ error: 'Email is required' });
   }
 
+  // Get client IP address
+  const ipAddress = req.ip || req.headers['x-forwarded-for']?.split(',')[0] || req.socket.remoteAddress;
+
   try {
     const response = await fetch('https://api.buttondown.com/v1/subscribers', {
       method: 'POST',
@@ -38,7 +42,10 @@ app.post('/api/subscribe', async (req, res) => {
         'Authorization': `Token ${BUTTONDOWN_API_KEY}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({
+        email,
+        ip_address: ipAddress
+      }),
     });
 
     const data = await response.json();
