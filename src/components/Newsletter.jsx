@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-const BUTTONDOWN_USERNAME = 'prajjwal';
-
 function Newsletter() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle');
@@ -15,25 +13,23 @@ function Newsletter() {
     setErrorMsg('');
 
     try {
-      const response = await fetch(
-        `https://buttondown.email/api/emails/embed-subscribe/${BUTTONDOWN_USERNAME}`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: new URLSearchParams({ email }).toString(),
-        }
-      );
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
 
       if (response.ok) {
         setStatus('success');
         setEmail('');
         setTimeout(() => setStatus('idle'), 5000);
       } else {
-        const data = await response.json().catch(() => ({}));
         setStatus('error');
-        setErrorMsg(data.detail || 'Something went wrong. Please try again.');
+        setErrorMsg(data.error || 'Something went wrong. Please try again.');
         setTimeout(() => setStatus('idle'), 4000);
       }
     } catch (error) {

@@ -5,7 +5,11 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static files from React build directory
+// Buttondown API config
+const BUTTONDOWN_API_KEY = process.env.BUTTONDOWN_API_KEY || '25675129-6404-43ee-8895-08f382307147';
+
+// Middleware
+app.use(express.json());
 app.use(express.static('dist'));
 
 // API endpoint to get all apps
@@ -16,6 +20,39 @@ app.get('/api/apps', (req, res) => {
   } catch (error) {
     console.error('Error reading apps.json:', error);
     res.status(500).json({ error: 'Failed to load apps data' });
+  }
+});
+
+// Newsletter subscription endpoint
+app.post('/api/subscribe', async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ error: 'Email is required' });
+  }
+
+  try {
+    const response = await fetch('https://api.buttondown.com/v1/subscribers', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Token ${BUTTONDOWN_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      res.json({ success: true, message: 'Successfully subscribed!' });
+    } else {
+      // Handle Buttondown API errors
+      const errorMsg = data.detail || data.email?.[0] || 'Subscription failed';
+      res.status(response.status).json({ error: errorMsg });
+    }
+  } catch (error) {
+    console.error('Newsletter subscription error:', error);
+    res.status(500).json({ error: 'Failed to subscribe. Please try again.' });
   }
 });
 
