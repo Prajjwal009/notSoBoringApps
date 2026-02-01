@@ -1,20 +1,46 @@
 import { useState } from 'react';
 
+const BUTTONDOWN_USERNAME = 'prajjwal';
+
 function Newsletter() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle');
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email) return;
 
     setStatus('loading');
+    setErrorMsg('');
 
-    setTimeout(() => {
-      setStatus('success');
-      setEmail('');
+    try {
+      const response = await fetch(
+        `https://buttondown.email/api/emails/embed-subscribe/${BUTTONDOWN_USERNAME}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams({ email }).toString(),
+        }
+      );
+
+      if (response.ok) {
+        setStatus('success');
+        setEmail('');
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        const data = await response.json().catch(() => ({}));
+        setStatus('error');
+        setErrorMsg(data.detail || 'Something went wrong. Please try again.');
+        setTimeout(() => setStatus('idle'), 4000);
+      }
+    } catch (error) {
+      setStatus('error');
+      setErrorMsg('Network error. Please try again.');
       setTimeout(() => setStatus('idle'), 4000);
-    }, 800);
+    }
   };
 
   return (
@@ -45,16 +71,20 @@ function Newsletter() {
             <button
               type="submit"
               disabled={status === 'loading' || status === 'success'}
-              className={status === 'success' ? 'success' : ''}
+              className={status === 'success' ? 'success' : status === 'error' ? 'error' : ''}
             >
               {status === 'loading' && <span className="spinner"></span>}
               {status === 'idle' && 'Subscribe'}
               {status === 'loading' && 'Joining...'}
               {status === 'success' && "You're in!"}
+              {status === 'error' && 'Try again'}
             </button>
           </div>
           {status === 'success' && (
-            <p className="success-message">Smart move. Check your inbox.</p>
+            <p className="success-message">Smart move. Check your inbox to confirm.</p>
+          )}
+          {status === 'error' && (
+            <p className="error-message">{errorMsg}</p>
           )}
         </form>
       </div>

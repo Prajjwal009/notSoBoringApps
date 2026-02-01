@@ -357,6 +357,16 @@ main {
   font-size: 0.9rem;
 }
 
+.error-message {
+  color: var(--error-color);
+  font-size: 0.9rem;
+}
+
+.newsletter-form button.error {
+  background: var(--error-color);
+  border-color: var(--error-color);
+}
+
 /* Hide floating shapes for minimal look */
 .newsletter-decoration {
   display: none;
