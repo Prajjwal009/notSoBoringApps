@@ -11,7 +11,9 @@
   --text-primary: #1a1a1a;
   --text-secondary: #666666;
   --text-muted: #999999;
-  --accent-color: #000000;
+  --accent-orange: #ff9500;
+  --accent-yellow: #ffcc00;
+  --accent-warm: #f97316;
   --border-color: #e5e5e5;
   --border-light: #f0f0f0;
   --success-color: #22c55e;
@@ -44,70 +46,77 @@ body {
 /* Header */
 header {
   background: var(--bg-white);
-  padding: 80px 24px 60px;
+  padding: 100px 24px 80px;
   text-align: center;
   border-bottom: 1px solid var(--border-light);
 }
 
 header h1 {
-  font-size: 2.8rem;
+  font-size: 3.2rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   letter-spacing: -0.03em;
 }
 
+header h1 .accent {
+  color: var(--accent-orange);
+  font-weight: 800;
+}
+
 .tagline {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   color: var(--text-secondary);
   font-weight: 400;
-  max-width: 400px;
+  max-width: 460px;
   margin: 0 auto;
+  line-height: 1.7;
 }
 
 /* Main Content */
 main {
-  padding: 60px 24px 80px;
+  padding: 80px 24px 100px;
 }
 
 #apps-section h2 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   letter-spacing: -0.02em;
 }
 
 .section-subtitle {
   color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 40px;
+  font-size: 1rem;
+  margin-bottom: 48px;
+  line-height: 1.6;
 }
 
 /* Apps Grid */
 .apps-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
 }
 
 /* App Card */
 .app-card {
   background: var(--bg-white);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 28px;
   border: 1px solid var(--border-color);
   transition: all var(--transition);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   cursor: default;
 }
 
 .app-card:hover {
-  border-color: var(--text-primary);
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-2px);
+  border-color: var(--accent-orange);
+  box-shadow: 0 8px 32px rgba(249, 115, 22, 0.12);
+  transform: translateY(-3px);
 }
 
 .app-icon {
@@ -140,12 +149,12 @@ main {
 .app-version {
   display: inline-block;
   font-size: 0.75rem;
-  color: var(--text-muted);
-  background: var(--bg-primary);
-  padding: 4px 10px;
+  color: var(--accent-warm);
+  background: rgba(249, 115, 22, 0.08);
+  padding: 5px 12px;
   border-radius: 100px;
   width: fit-content;
-  font-weight: 500;
+  font-weight: 600;
   font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
   letter-spacing: 0.02em;
 }
@@ -177,7 +186,7 @@ main {
   gap: 8px;
   background: var(--text-primary);
   color: var(--bg-white);
-  padding: 12px 20px;
+  padding: 14px 24px;
   border-radius: var(--radius-sm);
   text-decoration: none;
   font-weight: 500;
@@ -188,8 +197,9 @@ main {
 }
 
 .btn-download:hover {
-  background: transparent;
-  color: var(--text-primary);
+  background: var(--accent-orange);
+  border-color: var(--accent-orange);
+  color: white;
 }
 
 .btn-download svg {
