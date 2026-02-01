@@ -210,26 +210,6 @@ main {
   margin: 8px 0;
 }
 
-.app-category {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 6px 0;
-}
-
-.app-category::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  background: var(--primary-gradient);
-  border-radius: 50%;
-}
-
 /* Download Button */
 .app-actions {
   margin-top: auto;

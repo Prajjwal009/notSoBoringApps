@@ -3,10 +3,9 @@
     {
       "name": "Tetro",
       "description": "Classic Tetris that expands from your MacBook's notch. Play directly from your menu bar with smooth animations and native macOS feel.",
-      "icon": "https://via.placeholder.com/80/00ff00/000000?text=T",
+      "icon": "/icons/tetro.png",
       "version": "1.0.0",
-      "dmgFile": "tetro-1.0.0.dmg",
-      "category": "Games"
+      "dmgFile": "tetro-1.0.0.dmg"
     }
   ]
 }

@@ -16,7 +16,6 @@ function AppCard({ app }) {
         <h3 className="app-name">{app.name}</h3>
         <span className="app-version">v{app.version}</span>
         <p className="app-description">{app.description}</p>
-        <span className="app-category">{app.category}</span>
       </div>
       <div className="app-actions">
         <a href={`/download/${app.dmgFile}`} className="btn-download" download>

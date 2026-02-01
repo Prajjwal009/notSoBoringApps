@@ -44,7 +44,7 @@ app.use((req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 notSoBoringMenuApps is running on http://localhost:${PORT}`);
+  console.log(`🚀 notSoBoringApps is running on http://localhost:${PORT}`);
   console.log(`📦 Add your DMG files to the 'dmgs' folder`);
   console.log(`✏️  Edit 'apps.json' to update app information`);
 });
