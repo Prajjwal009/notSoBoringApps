@@ -50,7 +50,7 @@ function Newsletter() {
               {status === 'loading' && <span className="spinner"></span>}
               {status === 'idle' && 'Subscribe'}
               {status === 'loading' && 'Joining...'}
-              {status === 'success' && 'You're in!'}
+              {status === 'success' && "You're in!"}
             </button>
           </div>
           {status === 'success' && (
