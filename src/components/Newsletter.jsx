@@ -26,7 +26,6 @@ function Newsletter() {
       if (response.ok) {
         setStatus('success');
         setEmail('');
-        setTimeout(() => setStatus('idle'), 5000);
       } else {
         setStatus('error');
         setErrorMsg(data.error || 'Something went wrong. Please try again.');
@@ -54,35 +53,44 @@ function Newsletter() {
           </p>
         </div>
 
-        <form className="newsletter-form" onSubmit={handleSubmit}>
-          <div className="input-wrapper">
-            <input
-              type="email"
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              disabled={status === 'loading' || status === 'success'}
-              required
-            />
-            <button
-              type="submit"
-              disabled={status === 'loading' || status === 'success'}
-              className={status === 'success' ? 'success' : status === 'error' ? 'error' : ''}
-            >
-              {status === 'loading' && <span className="spinner"></span>}
-              {status === 'idle' && 'Subscribe'}
-              {status === 'loading' && 'Joining...'}
-              {status === 'success' && "You're in!"}
-              {status === 'error' && 'Try again'}
-            </button>
+        {status === 'success' ? (
+          <div className="subscribe-success">
+            <div className="success-checkmark">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="2"/>
+                <path d="M7 12.5L10.5 16L17 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <h4 className="success-title">You're in!</h4>
+            <p className="success-subtitle">Check your inbox to confirm your subscription.</p>
           </div>
-          {status === 'success' && (
-            <p className="success-message">Smart move. Check your inbox to confirm.</p>
-          )}
-          {status === 'error' && (
-            <p className="error-message">{errorMsg}</p>
-          )}
-        </form>
+        ) : (
+          <form className="newsletter-form" onSubmit={handleSubmit}>
+            <div className="input-wrapper">
+              <input
+                type="email"
+                placeholder="your@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={status === 'loading'}
+                required
+              />
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                className={status === 'error' ? 'error' : ''}
+              >
+                {status === 'loading' && <span className="spinner"></span>}
+                {status === 'idle' && 'Subscribe'}
+                {status === 'loading' && 'Joining...'}
+                {status === 'error' && 'Try again'}
+              </button>
+            </div>
+            {status === 'error' && (
+              <p className="error-message">{errorMsg}</p>
+            )}
+          </form>
+        )}
       </div>
     </section>
   );
