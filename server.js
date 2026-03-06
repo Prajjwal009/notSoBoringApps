@@ -38,9 +38,7 @@ app.post('/api/subscribe', async (req, res) => {
   const ipAddress = req.ip || req.headers['x-forwarded-for']?.split(',')[0] || req.socket.remoteAddress;
 
   try {
-    const body = NEWSLETTER_USE_PAYLOAD_FORMAT
-      ? { payload: { email_address: email } }
-      : { email, ip_address: ipAddress };
+    const body = { email: email };
 
     const response = await fetch(NEWSLETTER_API_URL, {
       method: 'POST',
@@ -48,7 +46,7 @@ app.post('/api/subscribe', async (req, res) => {
         'Authorization': `Token ${BUTTONDOWN_API_KEY}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify({ email: email }),
     });
 
     const data = await response.json();
