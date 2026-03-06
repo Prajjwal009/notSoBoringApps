@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 // Newsletter API config (supports Buttondown or providers that expect payload.email_address)
 const NEWSLETTER_API_URL = process.env.NEWSLETTER_API_URL || 'https://api.buttondown.com/v1/subscribers';
 const BUTTONDOWN_API_KEY = process.env.BUTTONDOWN_API_KEY || '25675129-6404-43ee-8895-08f382307147';
-const NEWSLETTER_USE_PAYLOAD_FORMAT = process.env.NEWSLETTER_USE_PAYLOAD_FORMAT === 'true';
+
 
 // Middleware
 app.set('trust proxy', true);
@@ -38,17 +38,16 @@ app.post('/api/subscribe', async (req, res) => {
   const ipAddress = req.ip || req.headers['x-forwarded-for']?.split(',')[0] || req.socket.remoteAddress;
 
   try {
-    const body = NEWSLETTER_USE_PAYLOAD_FORMAT
-      ? { payload: { email_address: email } }
-      : { email: email };
-
     const response = await fetch(NEWSLETTER_API_URL, {
       method: 'POST',
       headers: {
         'Authorization': `Token ${BUTTONDOWN_API_KEY}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify({
+        email_address: email,
+        ip_address: ipAddress,
+      }),
     });
 
     const data = await response.json();
