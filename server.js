@@ -5,8 +5,10 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Buttondown API config
+// Newsletter API config (supports Buttondown or providers that expect payload.email_address)
+const NEWSLETTER_API_URL = process.env.NEWSLETTER_API_URL || 'https://api.buttondown.com/v1/subscribers';
 const BUTTONDOWN_API_KEY = process.env.BUTTONDOWN_API_KEY || '25675129-6404-43ee-8895-08f382307147';
+const NEWSLETTER_USE_PAYLOAD_FORMAT = process.env.NEWSLETTER_USE_PAYLOAD_FORMAT === 'true';
 
 // Middleware
 app.set('trust proxy', true);
@@ -36,16 +38,17 @@ app.post('/api/subscribe', async (req, res) => {
   const ipAddress = req.ip || req.headers['x-forwarded-for']?.split(',')[0] || req.socket.remoteAddress;
 
   try {
-    const response = await fetch('https://api.buttondown.com/v1/subscribers', {
+    const body = NEWSLETTER_USE_PAYLOAD_FORMAT
+      ? { payload: { email_address: email } }
+      : { email, ip_address: ipAddress };
+
+    const response = await fetch(NEWSLETTER_API_URL, {
       method: 'POST',
       headers: {
         'Authorization': `Token ${BUTTONDOWN_API_KEY}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        email,
-        ip_address: ipAddress
-      }),
+      body: JSON.stringify(body),
     });
 
     const data = await response.json();
@@ -53,8 +56,12 @@ app.post('/api/subscribe', async (req, res) => {
     if (response.ok) {
       res.json({ success: true, message: 'Successfully subscribed!' });
     } else {
-      // Handle Buttondown API errors
-      const errorMsg = data.detail || data.email?.[0] || 'Subscription failed';
+      // Handle API errors (Buttondown, Loops, etc.)
+      let errorMsg = data.detail || data.email?.[0] || data.message || 'Subscription failed';
+      if (Array.isArray(data.error)) {
+        const first = data.error[0];
+        errorMsg = first?.msg || first?.message || errorMsg;
+      }
       res.status(response.status).json({ error: errorMsg });
     }
   } catch (error) {
