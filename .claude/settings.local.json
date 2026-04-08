@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npm run dev:*)",
-      "WebFetch(domain:notbor.ing)"
+      "WebFetch(domain:notbor.ing)",
+      "WebFetch(domain:www.tamanotch.app)"
     ]
   }
 }

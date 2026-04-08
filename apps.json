@@ -1,11 +1,12 @@
 {
   "apps": [
     {
-      "name": "Tetro",
-      "description": "Classic Tetris that expands from your MacBook's notch. Play directly from your menu bar with smooth animations and native macOS feel.",
-      "icon": "/icons/tetro.png",
+      "name": "PointBar",
+      "description": "A tiny points tracker that lives in your Mac's menu bar. Score your day, build streaks, and celebrate the small wins.",
+      "icon": "/icons/pointbar.png",
       "version": "1.0.0",
-      "dmgFile": "tetro-1.0.0.dmg"
+      "dmgFile": "pointbar-1.0.0.dmg",
+      "price": "$10"
     }
   ]
 }
