@@ -1,4 +1,37 @@
+import { useState } from 'react';
+
 function LandingPage() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('idle');
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email) return;
+    setStatus('loading');
+    setErrorMsg('');
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        setStatus('success');
+        setEmail('');
+      } else {
+        setStatus('error');
+        setErrorMsg(data.error || 'Something went wrong. Please try again.');
+        setTimeout(() => setStatus('idle'), 4000);
+      }
+    } catch (err) {
+      setStatus('error');
+      setErrorMsg('Network error. Please try again.');
+      setTimeout(() => setStatus('idle'), 4000);
+    }
+  };
+
   return (
     <div className="page">
       <main className="wrap">
@@ -63,6 +96,46 @@ function LandingPage() {
             Download for $10
           </a>
           <p className="reqs">macOS 12+ required (Apple Silicon &amp; Intel)</p>
+        </section>
+
+        <section className="newsletter">
+          <p className="news-kicker">stay in the loop</p>
+          <h2>Get notified about updates</h2>
+          <p className="news-sub">
+            Rare but never boring emails — new features, tiny apps, and the
+            occasional behind-the-scenes note. No spam, ever.
+          </p>
+
+          {status === 'success' ? (
+            <div className="news-success">
+              <div className="check">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M7 12.5L10.5 16L17 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <p className="news-success-title">you're in!</p>
+              <p className="news-success-sub">check your inbox to confirm.</p>
+            </div>
+          ) : (
+            <form className="news-form" onSubmit={handleSubmit}>
+              <input
+                type="email"
+                placeholder="your@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={status === 'loading'}
+                required
+              />
+              <button type="submit" disabled={status === 'loading'} className={status === 'error' ? 'err' : ''}>
+                {status === 'loading' && <span className="spinner"></span>}
+                {status === 'idle' && 'Subscribe'}
+                {status === 'loading' && 'Joining...'}
+                {status === 'error' && 'Try again'}
+              </button>
+            </form>
+          )}
+          {status === 'error' && <p className="news-error">{errorMsg}</p>}
         </section>
 
         <section className="block signoff">
