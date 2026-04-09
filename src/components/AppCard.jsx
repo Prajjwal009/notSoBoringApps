@@ -18,7 +18,7 @@ function AppCard({ app }) {
         <p className="app-description">{app.description}</p>
       </div>
       <div className="app-actions">
-        <a href={`/download/${app.dmgFile}`} className="btn-download" download>
+        <a href="/download/dmg" className="btn-download">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 12L3 7L4.4 5.6L7 8.2V0H9V8.2L11.6 5.6L13 7L8 12Z" fill="currentColor"/>
             <path d="M0 14H16V16H0V14Z" fill="currentColor"/>

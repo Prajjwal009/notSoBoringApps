@@ -153,7 +153,7 @@ function LandingPage() {
         </section>
 
         <section className="cta">
-          <a href="/download/slackstatus-1.0.0.dmg" className="buy" download>
+          <a href="/download/dmg" className="buy">
             Download SlackStatus
           </a>
           <p className="reqs">macOS 14+ required · Apple Silicon &amp; Intel</p>
