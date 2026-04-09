@@ -36,9 +36,9 @@ function LandingPage() {
     <div className="page">
       <main className="wrap">
         <section className="hero">
-          <h1 className="title">PointBar</h1>
+          <h1 className="title">SlackStatus</h1>
           <p className="tagline">
-            A tiny points tracker that lives in your Mac's menu bar.
+            Your meetings deserve a status. Your status deserves to be automatic.
           </p>
           <div className="preview">
             <div className="menubar">
@@ -48,54 +48,115 @@ function LandingPage() {
                 <span className="dot green"></span>
               </div>
               <div className="menubar-right">
-                <span className="bar-icon">★ 1,240</span>
+                <span className="bar-icon">🎧 In a meeting</span>
                 <span className="bar-time">9:41</span>
               </div>
             </div>
-            <p className="preview-caption">↑ that little ★ 1,240 — that's PointBar.</p>
+            <p className="preview-caption">↑ that's SlackStatus, quietly doing its job.</p>
           </div>
         </section>
 
         <section className="block">
-          <p className="hi">hey, i made something.</p>
+          <p className="hi">hey, we made something.</p>
           <p>
-            i'm a solo developer who got tired of bloated habit apps and big
-            dashboards. i wanted something that just sits there, quietly counting
-            the things that matter to me. no signup. no streak shaming. no charts
-            i never look at.
+            SlackStatus is a lightweight macOS menu bar app that keeps your Slack
+            presence honest — without you having to think about it. It connects
+            your calendar, your meetings, and your Slack profile so your teammates
+            always know when you're heads-down, in a call, or back at your desk.
           </p>
-          <p>so i built PointBar.</p>
+          <p>
+            No more switching tabs, opening Slack, clicking your avatar, hunting
+            for the status menu, picking an emoji, typing a message, setting a
+            timer, and getting back to work. One click. Done.
+          </p>
         </section>
 
         <section className="block">
-          <h2>what it does</h2>
+          <h2>What it does</h2>
           <ul className="features">
-            <li>🎯 <b>Track points</b> for anything — workouts, focus sessions, glasses of water, kind things you did.</li>
-            <li>⚡ <b>One-click logging</b> straight from the menu bar. No window. No friction.</li>
-            <li>🔥 <b>Streaks &amp; daily goals</b> that don't yell at you when you miss a day.</li>
-            <li>🎨 <b>Custom categories</b> with emojis, colors, and your own point values.</li>
-            <li>⌨️ <b>Global hotkeys</b> so you can score a point without ever touching the mouse.</li>
-            <li>📊 <b>A gentle history</b> — see your week at a glance, then close it and live your life.</li>
+            <li>⚡ <b>One-click status presets</b> — "In a meeting", "Lunch break", "Focus mode", "Working remotely", and your own custom presets, all reachable from the menu bar.</li>
+            <li>✏️ <b>Custom status editor</b> — pick any emoji, write any message, set an auto-clear timer, push it live in seconds.</li>
+            <li>🔕 <b>Do Not Disturb toggle</b> — flip Slack DND on or off without leaving what you're doing.</li>
+            <li>📅 <b>Calendar-aware meetings</b> — connect Google Calendar or macOS Calendar and SlackStatus surfaces every upcoming meeting with a Google Meet link.</li>
+            <li>🎯 <b>One-click join</b> — every meeting has a "Join" button that opens Meet and sets your status to "In a meeting" automatically, with the timer matched to the meeting's end.</li>
+            <li>📞 <b>Instant Meet</b> — start a fresh Google Meet call from the menu bar; your Slack status updates the moment you do.</li>
+            <li>🌙 <b>Notch-aware notifications</b> — on MacBooks with the camera notch, alerts drop down from behind it with a beautifully animated card that matches the hardware curve.</li>
+            <li>🎛️ <b>Quick action menu</b> — a second menu bar item opens a notch-style dropdown with your most-used presets and meeting controls in one glanceable surface.</li>
           </ul>
         </section>
 
         <section className="block">
-          <h2>$10 feels fair</h2>
+          <h2>Who it's for</h2>
           <p>
-            i spent a few months on this. it's a small app, but it does its one
-            job well, and i'd like to keep working on it.
+            SlackStatus is built for the people whose calendars and Slack are
+            constantly out of sync — and the teammates who suffer for it.
+          </p>
+          <ul className="features">
+            <li>👩‍💻 <b>Engineers and designers</b> in deep-focus work who need to signal "don't ping me" without breaking flow.</li>
+            <li>📊 <b>Managers</b> bouncing between back-to-back meetings who can't keep updating their status manually.</li>
+            <li>🌍 <b>Remote workers</b> whose teams rely on Slack presence as the primary signal of availability.</li>
+            <li>💬 Anyone who has ever had a colleague Slack them mid-call asking "are you free?" because their status said they were.</li>
+          </ul>
+        </section>
+
+        <section className="block">
+          <h2>How it helps</h2>
+          <p>
+            <b>It removes friction.</b> Updating your Slack status is the kind of
+            small task that's easy enough to do but annoying enough to skip.
+            SlackStatus collapses six clicks into one — and most of the time,
+            zero, because it does it for you when a meeting starts.
           </p>
           <p>
-            no subscriptions. no accounts. no telemetry. just the app, on your
-            Mac, forever. one-time payment, lifetime updates for v1.
+            <b>It keeps your team in sync.</b> When your status reflects reality,
+            your teammates stop interrupting you during deep work, stop pinging
+            you during meetings, and stop wondering whether you saw their message.
+            Better signals mean fewer wasted messages.
+          </p>
+          <p>
+            <b>It respects your focus.</b> Everything happens from the menu bar.
+            No tab-switching, no context loss, no Slack web client open in the
+            background eating RAM. The app stays out of your way until you need it.
+          </p>
+          <p>
+            <b>It's calendar-native.</b> SlackStatus pulls upcoming meetings from
+            both Google Calendar and macOS Calendar, deduplicates them, and
+            surfaces only the ones with actual Meet links — so what you see is
+            what you'll actually join.
           </p>
         </section>
 
+        <section className="block">
+          <h2>What makes it different</h2>
+          <p>
+            Most "Slack status" tools are either browser extensions that break
+            every Chrome update, or heavyweight automation platforms that need a
+            Zap, a webhook, and a prayer to fire correctly. SlackStatus is a
+            native macOS app:
+          </p>
+          <ul className="features">
+            <li>🍎 <b>Native menu bar integration</b> — instant launch, low memory footprint, no Electron.</li>
+            <li>⚙️ <b>Designed for Apple Silicon</b> — built for macOS 14+ with SwiftUI.</li>
+            <li>🌗 <b>Notch-matching UI</b> — drop-down notifications and menus that visually emerge from the MacBook notch with proper concave curves, not floating rectangles slapped on top of your screen.</li>
+            <li>🔒 <b>Privacy first</b> — the app talks directly to Slack and Google APIs from your Mac. No middleman server, no analytics, no telemetry, no account required beyond the OAuth handshakes you already trust.</li>
+            <li>💾 <b>Local-first storage</b> — your presets and tokens live on your machine, not in someone's database.</li>
+          </ul>
+        </section>
+
+        <section className="block">
+          <h2>How it works</h2>
+          <ol className="steps">
+            <li><b>Sign in to Slack</b> with one click — standard OAuth, the same flow you use for any Slack integration.</li>
+            <li><b>Connect Google Calendar</b> (optional) for richer meeting data, or just let macOS Calendar do the work.</li>
+            <li><b>Use it.</b> The menu bar icon shows your current status. Click it to change it, set DND, see upcoming meetings, or start a new Meet. Or do nothing — when a calendar meeting starts, SlackStatus is ready with a one-tap "Join" that updates everything.</li>
+          </ol>
+        </section>
+
         <section className="cta">
-          <a href="/download/pointbar-1.0.0.dmg" className="buy" download>
-            Download for $10
+          <a href="/download/slackstatus-1.0.0.dmg" className="buy" download>
+            Download SlackStatus
           </a>
-          <p className="reqs">macOS 12+ required (Apple Silicon &amp; Intel)</p>
+          <p className="reqs">macOS 14+ required · Apple Silicon &amp; Intel</p>
         </section>
 
         <section className="newsletter">
@@ -139,24 +200,24 @@ function LandingPage() {
         </section>
 
         <section className="block signoff">
-          <p className="caveat">made with care, in a small apartment.</p>
+          <p className="caveat">made with care, by a small team that ships small things.</p>
           <p>
-            if PointBar makes you smile (or score a few extra points today), tell
-            a friend. that's how tiny apps survive.
+            if SlackStatus saves you from one mid-meeting "you free?" ping, tell
+            a teammate. that's how tiny apps survive.
           </p>
-          <p>— Prajjwal</p>
+          <p>— the notSoBoringApps team</p>
         </section>
       </main>
 
       <footer className="foot">
         <div className="foot-row">
-          <a href="mailto:hello@pointbar.app">hello@pointbar.app</a>
+          <a href="mailto:hello@notsoboringapps.com">hello@notsoboringapps.com</a>
           <span>·</span>
           <a href="#">Privacy</a>
           <span>·</span>
           <a href="#">Terms</a>
         </div>
-        <p className="foot-credit">Made with care by Prajjwal.</p>
+        <p className="foot-credit">Made by us at notSoBoringApps.</p>
       </footer>
     </div>
   );

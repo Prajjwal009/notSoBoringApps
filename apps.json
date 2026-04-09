@@ -1,12 +1,11 @@
 {
   "apps": [
     {
-      "name": "PointBar",
-      "description": "A tiny points tracker that lives in your Mac's menu bar. Score your day, build streaks, and celebrate the small wins.",
-      "icon": "/icons/pointbar.png",
+      "name": "SlackStatus",
+      "description": "A lightweight macOS menu bar app that keeps your Slack presence honest — automatically. Calendar-aware meetings, one-click presets, and notch-native notifications.",
+      "icon": "/icons/slackstatus.png",
       "version": "1.0.0",
-      "dmgFile": "pointbar-1.0.0.dmg",
-      "price": "$10"
+      "dmgFile": "slackstatus-1.0.0.dmg"
     }
   ]
 }
