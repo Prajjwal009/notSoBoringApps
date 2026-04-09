@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -8,6 +9,8 @@ const PORT = process.env.PORT || 3000;
 // Newsletter API config (supports Buttondown or providers that expect payload.email_address)
 const NEWSLETTER_API_URL = process.env.NEWSLETTER_API_URL || 'https://api.buttondown.com/v1/subscribers';
 const BUTTONDOWN_API_KEY = process.env.BUTTONDOWN_API_KEY || '25675129-6404-43ee-8895-08f382307147';
+
+const S3_BASE = process.env.S3_BASE_URL;
 
 
 // Middleware
@@ -69,22 +72,47 @@ app.post('/api/subscribe', async (req, res) => {
   }
 });
 
-// Serve DMG files with proper headers
-app.get('/download/:filename', (req, res) => {
-  const filename = req.params.filename;
-  const filePath = path.join(__dirname, 'dmgs', filename);
+// GET /api/version → returns latest version metadata as JSON
+app.get("/api/version", async (req, res) => {
+  try {
+    const response = await fetch(`${S3_BASE}/latest.json`);
 
-  // Check if file exists
-  if (!fs.existsSync(filePath)) {
-    return res.status(404).json({ error: 'File not found' });
+    if (!response.ok) {
+      return res.status(404).json({ error: "Version info not found" });
+    }
+
+    const data = await response.json();
+
+    res.json({
+      version: data.version,
+      releaseDate: data.releaseDate,
+      releaseNotes: data.releaseNotes,
+      minimumOSVersion: data.minimumOSVersion,
+      fileSize: data.fileSize,
+    });
+  } catch (err) {
+    console.error("Version fetch error:", err);
+    res.status(500).json({ error: "Failed to fetch version info" });
   }
+});
 
-  // Set headers for DMG download
-  res.setHeader('Content-Type', 'application/x-apple-diskimage');
-  res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+// GET /download/dmg → redirects browser straight to S3 DMG file
+app.get("/download/dmg", async (req, res) => {
+  try {
+    const response = await fetch(`${S3_BASE}/latest.json`);
 
-  // Send file
-  res.sendFile(filePath);
+    if (!response.ok) {
+      return res.status(404).send("Version info not found");
+    }
+
+    const { downloadPath } = await response.json();
+    const dmgUrl = `${S3_BASE}/${downloadPath}`;
+
+    res.redirect(dmgUrl);
+  } catch (err) {
+    console.error("Download redirect error:", err);
+    res.status(500).send("Failed to get download link");
+  }
 });
 
 // Serve React app for all other routes (client-side routing)
