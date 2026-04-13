@@ -36,7 +36,7 @@ function LandingPage() {
     <div className="page">
       <main className="wrap">
         <section className="hero">
-          <h1 className="title">SlackStatus</h1>
+          <h1 className="title">Point Bar</h1>
           <p className="tagline">
             Your Slack status, on autopilot.
           </p>
@@ -52,7 +52,7 @@ function LandingPage() {
                 <span className="bar-time">9:41</span>
               </div>
             </div>
-            <p className="preview-caption">↑ that's SlackStatus, quietly doing its job.</p>
+            <p className="preview-caption">↑ that's Point Bar, quietly doing its job.</p>
           </div>
         </section>
 
@@ -85,7 +85,7 @@ function LandingPage() {
 
         <section className="cta">
           <a href="/download/dmg" className="buy">
-            Download SlackStatus
+            Download Point Bar
           </a>
           <p className="reqs">macOS 14+ required · Apple Silicon &amp; Intel</p>
         </section>
