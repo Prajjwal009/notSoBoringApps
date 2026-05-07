@@ -137,7 +137,7 @@ function LandingPage() {
 
       <footer className="foot">
         <div className="foot-row">
-          <a href="mailto:hello@notsoboringapps.com">hello@notsoboringapps.com</a>
+          <a href="mailto:hello@drawer.com">hello@drawer.com</a>
           <span>·</span>
           <a href="#">Privacy</a>
           <span>·</span>
