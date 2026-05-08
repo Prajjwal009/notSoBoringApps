@@ -36,58 +36,77 @@ function LandingPage() {
     <div className="page">
       <main className="wrap">
         <section className="hero">
-          <h1 className="title">Drawer</h1>
+          <h1 className="title">Drawr</h1>
           <p className="tagline">
-            Your Slack status, on autopilot.
+            Your MacBook Notch, Supercharged.
           </p>
-          <div className="preview">
-            <div className="menubar">
-              <div className="menubar-left">
-                <span className="dot red"></span>
-                <span className="dot yellow"></span>
-                <span className="dot green"></span>
+
+          {/* Notch preview */}
+          <div className="notch-preview">
+            <div className="notch-bar">
+              <div className="notch-pill"></div>
+            </div>
+            <div className="notch-panel">
+              <div className="notch-tabs">
+                <span className="ntab active">💬 Slack</span>
+                <span className="ntab">📅 Calendar</span>
+                <span className="ntab">🏏 Scores</span>
+                <span className="ntab">📈 Stocks</span>
               </div>
-              <div className="menubar-right">
-                <span className="bar-icon">🎧 In a meeting</span>
-                <span className="bar-time">9:41</span>
+              <div className="notch-cards">
+                <div className="ncard status-card">
+                  <span className="ncard-label">Current status</span>
+                  <span className="ncard-value">🎧 In a meeting</span>
+                  <div className="ncard-actions">
+                    <span className="nbadge">Focus mode</span>
+                    <span className="nbadge">Lunch break</span>
+                    <span className="nbadge dnd">DND</span>
+                  </div>
+                </div>
+                <div className="ncard meet-card">
+                  <span className="ncard-label">Next meeting · in 4 min</span>
+                  <span className="ncard-value small">Design Review</span>
+                  <span className="njoin">Join Meet →</span>
+                </div>
               </div>
             </div>
-            <p className="preview-caption">↑ that's Drawer, quietly doing its job.</p>
           </div>
+          <p className="preview-caption">↑ hover the notch. everything's already there.</p>
         </section>
 
         <section className="block">
-          <p className="hi">A tiny macOS menu bar app that keeps your Slack presence honest.</p>
+          <p className="hi">one hover. everything you need.</p>
           <p>
-            Set your Slack status in one click, get notified about meetings, and join Google Meet calls — all without leaving what you're doing.
+            Drawr lives exactly where the notch is. One hover — or a single keystroke — and your command centre drops down: Slack status, today's meetings, live sports scores, your stock watchlist. When you're done, it vanishes just as fast.
           </p>
         </section>
 
         <section className="block">
-          <h2>What it does</h2>
+          <h2>What's inside</h2>
           <ul className="features">
-            <li>⚡ <b>One-click status presets</b> — set "In a meeting", "Focus mode", "Lunch break", or your own custom status from the menu bar.</li>
-            <li>🔕 <b>Do Not Disturb</b> — toggle Slack DND instantly without opening Slack.</li>
-            <li>📅 <b>Meeting notifications</b> — get notified before meetings start, with a one-click "Join" that opens Google Meet and updates your status automatically.</li>
-            <li>📞 <b>Start a Meet</b> — launch a fresh Google Meet from the menu bar; your status updates the moment you do.</li>
-            <li>🔒 <b>Privacy first</b> — talks directly to Slack and Google APIs from your Mac. No server, no telemetry.</li>
+            <li>💬 <b>Slack Status</b> — set your status from saved presets or type a custom one. Toggle Do Not Disturb instantly. Everything syncs the moment you tap.</li>
+            <li>📅 <b>Meetings & Google Calendar</b> — see upcoming events with one-tap Join buttons for Google Meet. Get a notification before it starts so you're never late.</li>
+            <li>🏏 <b>Live Sports Scores</b> — cricket and football, live. Get notified on wickets, boundaries, and goals. Pin the match you care about most.</li>
+            <li>📈 <b>Stock Watchlist</b> — track any stock globally with live price, day change, currency symbol, and an intraday sparkline. Tap to open the full chart.</li>
+            <li>🔔 <b>Notch Notifications</b> — Slack messages, stock moves, match events. They slide out of the notch as elegant cards — no notification centre clutter.</li>
+            <li>⌨️ <b>Global Shortcut</b> — open Drawr from anywhere with ⌘⇧R (fully customisable). Works system-wide, even when another app is in focus.</li>
           </ul>
         </section>
 
         <section className="block">
-          <h2>How it works</h2>
+          <h2>Setup in seconds</h2>
           <ol className="steps">
-            <li><b>Sign in to Slack</b> — standard OAuth, one click.</li>
-            <li><b>Connect Google Calendar</b> (optional) — for meeting notifications and Meet links.</li>
-            <li><b>Use it.</b> Click the menu bar icon to set your status, toggle DND, or join a meeting.</li>
+            <li><b>Download & open Drawr</b> — a guided onboarding walks you through everything from the notch itself. No config screens.</li>
+            <li><b>Connect Slack & Google Calendar</b> — standard OAuth, one click each. Both are optional; use only what you need.</li>
+            <li><b>Hover the notch.</b> Your command centre is ready. Everything else — scores, stocks, shortcuts — is one settings tap away.</li>
           </ol>
         </section>
 
         <section className="cta">
           <a href="/download/dmg" className="buy">
-            Download Drawer
+            Download Drawr
           </a>
-          <p className="reqs">macOS 14+ required · Apple Silicon &amp; Intel</p>
+          <p className="reqs">macOS 13+ · MacBook Pro 2021 or later · MacBook Air M2 or later</p>
         </section>
 
         <section className="newsletter">
@@ -137,7 +156,7 @@ function LandingPage() {
 
       <footer className="foot">
         <div className="foot-row">
-          <a href="mailto:hello@drawer.com">hello@drawer.com</a>
+          <a href="mailto:hello@drawr.com">hello@drawr.com</a>
           <span>·</span>
           <a href="#">Privacy</a>
           <span>·</span>

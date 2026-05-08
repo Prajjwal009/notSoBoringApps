@@ -144,6 +144,135 @@ body {
   transform: rotate(-1deg);
 }
 
+/* Notch Preview */
+.notch-preview {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notch-bar {
+  width: 100%;
+  max-width: 520px;
+  height: 32px;
+  background: #0e0e0e;
+  border-radius: 14px 14px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.notch-pill {
+  width: 120px;
+  height: 22px;
+  background: #000;
+  border-radius: 0 0 12px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.notch-panel {
+  width: 100%;
+  max-width: 520px;
+  background: #111110;
+  border: 1px solid #2a2825;
+  border-top: none;
+  border-radius: 0 0 18px 18px;
+  padding: 16px 18px 20px;
+  box-shadow: 0 24px 60px -20px rgba(0,0,0,0.6), 0 8px 24px -12px rgba(255,122,89,0.15);
+}
+
+.notch-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.ntab {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  color: #6b6b6b;
+  background: #1a1a18;
+  border: 1px solid #2a2825;
+  cursor: default;
+  white-space: nowrap;
+}
+
+.ntab.active {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  color: #fff;
+  border-color: transparent;
+}
+
+.notch-cards {
+  display: flex;
+  gap: 10px;
+}
+
+.ncard {
+  flex: 1;
+  background: #1a1a18;
+  border: 1px solid #2a2825;
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.ncard-label {
+  font-size: 0.72rem;
+  color: #555;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ncard-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f5f1e8;
+}
+
+.ncard-value.small { font-size: 0.85rem; }
+
+.ncard-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.nbadge {
+  font-size: 0.72rem;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #252422;
+  border: 1px solid #333;
+  color: #9a958a;
+  white-space: nowrap;
+}
+
+.nbadge.dnd {
+  background: rgba(239,68,68,0.12);
+  border-color: rgba(239,68,68,0.3);
+  color: #ef4444;
+}
+
+.njoin {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 2px;
+  cursor: default;
+}
+
 /* Blocks */
 .block {
   margin-bottom: 56px;
