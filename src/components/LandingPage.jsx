@@ -163,8 +163,8 @@ function LandingPage() {
         </section>
 
         <section className="block signoff">
-          <p className="caveat">made with care, by a small team that ships small things.</p>
-          <p>— the notSoBoringApps team</p>
+          <p className="caveat">made with care by developers who actually use what they build.</p>
+          <p>— the Drawr team</p>
         </section>
       </main>
 
@@ -176,7 +176,7 @@ function LandingPage() {
           <span>·</span>
           <a href="#">Terms</a>
         </div>
-        <p className="foot-credit">Made by us at notSoBoringApps.</p>
+        <p className="foot-credit">Built by devs who hate bad tools.</p>
       </footer>
     </div>
   );
