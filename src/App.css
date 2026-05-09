@@ -150,38 +150,98 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
-.notch-bar {
+/* MacBook top bar */
+.mac-topbar {
   width: 100%;
-  max-width: 520px;
-  height: 32px;
-  background: #0e0e0e;
+  max-width: 580px;
+  height: 36px;
+  background: #161614;
   border-radius: 14px 14px 0 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 14px;
   position: relative;
+  border: 1px solid #2a2825;
+  border-bottom: none;
 }
 
-.notch-pill {
-  width: 120px;
-  height: 22px;
-  background: #000;
-  border-radius: 0 0 12px 12px;
+.mac-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mac-apple {
+  font-size: 1rem;
+  color: #f5f1e8;
+  opacity: 0.9;
+}
+
+.mac-menu-item {
+  font-size: 0.75rem;
+  color: #a0998e;
+  font-weight: 500;
+}
+
+/* Notch cutout in the centre */
+.mac-notch {
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   top: 0;
+  width: 130px;
+  height: 36px;
+  background: #000;
+  border-radius: 0 0 18px 18px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 2;
 }
 
+.mac-notch-inner {
+  width: 10px;
+  height: 10px;
+  background: #1a1a18;
+  border-radius: 50%;
+  margin-top: 12px;
+  opacity: 0.6;
+}
+
+.mac-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mac-status-item {
+  font-size: 0.75rem;
+  color: #f5f1e8;
+  font-weight: 500;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.mac-status-item.muted {
+  background: none;
+  color: #6b6b6b;
+}
+
+/* Drawr panel */
 .notch-panel {
   width: 100%;
-  max-width: 520px;
+  max-width: 580px;
   background: #111110;
   border: 1px solid #2a2825;
   border-top: none;
-  border-radius: 0 0 18px 18px;
+  border-radius: 0 0 20px 20px;
   padding: 16px 18px 20px;
-  box-shadow: 0 24px 60px -20px rgba(0,0,0,0.6), 0 8px 24px -12px rgba(255,122,89,0.15);
+  box-shadow: 0 28px 60px -20px rgba(0,0,0,0.7), 0 8px 24px -12px rgba(255,122,89,0.12);
 }
 
 .notch-tabs {

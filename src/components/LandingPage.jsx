@@ -43,9 +43,23 @@ function LandingPage() {
 
           {/* Notch preview */}
           <div className="notch-preview">
-            <div className="notch-bar">
-              <div className="notch-pill"></div>
+            {/* MacBook top bar with notch */}
+            <div className="mac-topbar">
+              <div className="mac-topbar-left">
+                <span className="mac-apple">⊹</span>
+                <span className="mac-menu-item">Finder</span>
+                <span className="mac-menu-item">File</span>
+                <span className="mac-menu-item">Edit</span>
+              </div>
+              <div className="mac-notch">
+                <div className="mac-notch-inner"></div>
+              </div>
+              <div className="mac-topbar-right">
+                <span className="mac-status-item">🎧 In a meeting</span>
+                <span className="mac-status-item muted">9:41 AM</span>
+              </div>
             </div>
+            {/* Drawr panel dropping from notch */}
             <div className="notch-panel">
               <div className="notch-tabs">
                 <span className="ntab active">💬 Slack</span>
@@ -64,14 +78,14 @@ function LandingPage() {
                   </div>
                 </div>
                 <div className="ncard meet-card">
-                  <span className="ncard-label">Next meeting · in 4 min</span>
+                  <span className="ncard-label">Next · in 4 min</span>
                   <span className="ncard-value small">Design Review</span>
                   <span className="njoin">Join Meet →</span>
                 </div>
               </div>
             </div>
           </div>
-          <p className="preview-caption">↑ hover the notch. everything's already there.</p>
+          <p className="preview-caption">↑ one hover. everything's already there.</p>
         </section>
 
         <section className="block">
