@@ -36,6 +36,9 @@ function LandingPage() {
     <div className="page">
       <main className="wrap">
         <section className="hero">
+          <div className="hero-badges">
+            <span className="badge-beta">Beta</span>
+          </div>
           <h1 className="title">Drawr</h1>
           <p className="tagline">
             Your MacBook Notch, Supercharged.
@@ -120,6 +123,7 @@ function LandingPage() {
           <a href="/download/dmg" className="buy">
             Download Drawr
           </a>
+          <p className="download-count">⬇ 7 downloads so far</p>
           <p className="reqs">macOS 13+ · MacBook Pro 2021 or later · MacBook Air M2 or later</p>
         </section>
 
