@@ -146,191 +146,109 @@ body {
 
 /* Notch Preview */
 .notch-preview {
-  margin-top: 36px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 
-/* MacBook top bar */
-.mac-topbar {
-  width: 100%;
-  max-width: 580px;
-  height: 36px;
-  background: #161614;
-  border-radius: 14px 14px 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 14px;
+/* Notch pill */
+.notch-pill-wrap {
   position: relative;
-  border: 1px solid #2a2825;
-  border-bottom: none;
-}
-
-.mac-topbar-left {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  justify-content: center;
+  width: 100%;
 }
 
-.mac-apple {
-  font-size: 1rem;
-  color: #f5f1e8;
-  opacity: 0.9;
+.notch-pill-shape {
+  width: 148px;
+  height: 34px;
+  background: #000;
+  border-radius: 0 0 20px 20px;
+  z-index: 2;
+  position: relative;
 }
 
-.mac-menu-item {
-  font-size: 0.75rem;
-  color: #a0998e;
-  font-weight: 500;
-}
-
-/* Notch cutout in the centre */
-.mac-notch {
+.notch-glow {
   position: absolute;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  top: 0;
-  width: 130px;
-  height: 36px;
-  background: #000;
-  border-radius: 0 0 18px 18px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  z-index: 2;
-}
-
-.mac-notch-inner {
-  width: 10px;
-  height: 10px;
-  background: #1a1a18;
-  border-radius: 50%;
-  margin-top: 12px;
-  opacity: 0.6;
-}
-
-.mac-topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.mac-status-item {
-  font-size: 0.75rem;
-  color: #f5f1e8;
-  font-weight: 500;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
-  padding: 3px 10px;
-  border-radius: 6px;
-}
-
-.mac-status-item.muted {
-  background: none;
-  color: #6b6b6b;
+  width: 200px;
+  height: 40px;
+  background: radial-gradient(ellipse at center, rgba(255,122,89,0.3) 0%, transparent 70%);
+  filter: blur(12px);
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Drawr panel */
 .notch-panel {
   width: 100%;
-  max-width: 580px;
+  max-width: 340px;
   background: #111110;
   border: 1px solid #2a2825;
   border-top: none;
   border-radius: 0 0 20px 20px;
-  padding: 16px 18px 20px;
-  box-shadow: 0 28px 60px -20px rgba(0,0,0,0.7), 0 8px 24px -12px rgba(255,122,89,0.12);
+  padding: 6px 0 4px;
+  box-shadow: 0 32px 64px -24px rgba(0,0,0,0.8),
+              0 0 0 1px rgba(255,122,89,0.06),
+              0 8px 32px -8px rgba(255,122,89,0.1);
 }
 
-.notch-tabs {
+.nrow {
   display: flex;
-  gap: 6px;
-  margin-bottom: 14px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
 }
 
-.ntab {
+.nrow-icon {
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.nrow-label {
   font-size: 0.78rem;
-  font-weight: 600;
-  padding: 5px 12px;
-  border-radius: 999px;
   color: #6b6b6b;
-  background: #1a1a18;
-  border: 1px solid #2a2825;
-  cursor: default;
+  font-weight: 500;
+  flex: 1;
+}
+
+.nrow-value {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #c9c3b8;
   white-space: nowrap;
 }
 
-.ntab.active {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
-  color: #fff;
-  border-color: transparent;
+.nrow-value.accent {
+  color: var(--accent);
 }
 
-.notch-cards {
-  display: flex;
-  gap: 10px;
-}
-
-.ncard {
-  flex: 1;
-  background: #1a1a18;
-  border: 1px solid #2a2825;
-  border-radius: 12px;
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-width: 0;
-}
-
-.ncard-label {
-  font-size: 0.72rem;
+.nrow-value.muted {
   color: #555;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
 }
 
-.ncard-value {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #f5f1e8;
-}
-
-.ncard-value.small { font-size: 0.85rem; }
-
-.ncard-actions {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-top: 2px;
-}
-
-.nbadge {
-  font-size: 0.72rem;
-  padding: 3px 9px;
-  border-radius: 999px;
-  background: #252422;
-  border: 1px solid #333;
-  color: #9a958a;
-  white-space: nowrap;
-}
-
-.nbadge.dnd {
-  background: rgba(239,68,68,0.12);
-  border-color: rgba(239,68,68,0.3);
-  color: #ef4444;
-}
-
-.njoin {
-  font-size: 0.8rem;
-  font-weight: 600;
+.nrow-join {
   color: var(--accent);
-  margin-top: 2px;
-  cursor: default;
+  font-size: 0.78rem;
+  margin-left: 4px;
+}
+
+.nrow-up {
+  color: #22c55e;
+  font-size: 0.75rem;
+  margin-left: 3px;
+}
+
+.ndivider {
+  height: 1px;
+  background: #1e1e1c;
+  margin: 0 18px;
 }
 
 /* Blocks */
@@ -658,6 +576,63 @@ body {
   font-family: 'Caveat', cursive;
   font-size: 1.15rem;
 }
+
+/* Policy pages */
+.policy-wrap {
+  padding-top: 64px;
+  padding-bottom: 80px;
+}
+
+.policy-back {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 36px;
+  transition: color 0.15s ease;
+}
+
+.policy-back:hover { color: var(--accent); }
+
+.policy-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  margin-bottom: 8px;
+}
+
+.policy-date {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 48px;
+}
+
+.policy-section {
+  margin-bottom: 36px;
+}
+
+.policy-section h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.policy-section p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.policy-section p:last-child { margin-bottom: 0; }
+
+.policy-section a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.policy-section a:hover { text-decoration: underline; }
 
 /* Selection */
 ::selection {

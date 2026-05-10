@@ -46,45 +46,33 @@ function LandingPage() {
 
           {/* Notch preview */}
           <div className="notch-preview">
-            {/* MacBook top bar with notch */}
-            <div className="mac-topbar">
-              <div className="mac-topbar-left">
-                <span className="mac-apple">⊹</span>
-                <span className="mac-menu-item">Finder</span>
-                <span className="mac-menu-item">File</span>
-                <span className="mac-menu-item">Edit</span>
-              </div>
-              <div className="mac-notch">
-                <div className="mac-notch-inner"></div>
-              </div>
-              <div className="mac-topbar-right">
-                <span className="mac-status-item">🎧 In a meeting</span>
-                <span className="mac-status-item muted">9:41 AM</span>
-              </div>
+            <div className="notch-pill-wrap">
+              <div className="notch-pill-shape"></div>
+              <div className="notch-glow"></div>
             </div>
-            {/* Drawr panel dropping from notch */}
             <div className="notch-panel">
-              <div className="notch-tabs">
-                <span className="ntab active">💬 Slack</span>
-                <span className="ntab">📅 Calendar</span>
-                <span className="ntab">🏏 Scores</span>
-                <span className="ntab">📈 Stocks</span>
+              <div className="nrow">
+                <span className="nrow-icon">💬</span>
+                <span className="nrow-label">Slack</span>
+                <span className="nrow-value accent">🎧 In a meeting</span>
               </div>
-              <div className="notch-cards">
-                <div className="ncard status-card">
-                  <span className="ncard-label">Current status</span>
-                  <span className="ncard-value">🎧 In a meeting</span>
-                  <div className="ncard-actions">
-                    <span className="nbadge">Focus mode</span>
-                    <span className="nbadge">Lunch break</span>
-                    <span className="nbadge dnd">DND</span>
-                  </div>
-                </div>
-                <div className="ncard meet-card">
-                  <span className="ncard-label">Next · in 4 min</span>
-                  <span className="ncard-value small">Design Review</span>
-                  <span className="njoin">Join Meet →</span>
-                </div>
+              <div className="ndivider"></div>
+              <div className="nrow">
+                <span className="nrow-icon">📅</span>
+                <span className="nrow-label">Next meeting</span>
+                <span className="nrow-value">Design Review <span className="nrow-join">Join →</span></span>
+              </div>
+              <div className="ndivider"></div>
+              <div className="nrow">
+                <span className="nrow-icon">📈</span>
+                <span className="nrow-label">AAPL</span>
+                <span className="nrow-value">$213.40 <span className="nrow-up">+1.2%</span></span>
+              </div>
+              <div className="ndivider"></div>
+              <div className="nrow">
+                <span className="nrow-icon">🏏</span>
+                <span className="nrow-label">IND vs AUS</span>
+                <span className="nrow-value muted">287 / 4 · 42.3 ov</span>
               </div>
             </div>
           </div>
@@ -176,9 +164,9 @@ function LandingPage() {
         <div className="foot-row">
           <a href="mailto:hello@drawr.com">hello@drawr.com</a>
           <span>·</span>
-          <a href="#">Privacy</a>
+          <a href="/privacy">Privacy</a>
           <span>·</span>
-          <a href="#">Terms</a>
+          <a href="/terms">Terms</a>
         </div>
         <p className="foot-credit">Built by devs who hate bad tools.</p>
       </footer>
